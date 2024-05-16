@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <title>Island Racer</title>
+</head>
+
+<body>
+  <main>
+    <!-- #game-intro is initially shown on the game start screen -->
+    <div id="game-intro">
+
+      <div class="left-container">
+        <img src="./images/long.png" alt="dragon sign" id="dragon-img">
+      </div>
+
+      <div class="middle-container">
+        <p id="title">2024 is the year of the dragon!</p>
+        <p> Help the dragon collect his balls with the chinese symbol for dragon: "lóng". But beware of the elements!
+        </p>
+        <div>
+          <p id="arrow-p">Use the arrows to move the dragon!</p>
+          <img src="./images/arroq.webp" alt="" class="arrows-img" />
+        </div>
+        <button id="start-button">Start</button>
+      </div>
+
+      <div class="right-container">
+        <img src="./images/dragon.png" alt="dragon icon" id="dragon-icon">
+      </div>
+
+    </div>
+
+    <div id="game-container">
+      <div id="score-div">
+        <p>Long Count: <span id="score">0</span></p>
+        <p>Lives: <span id="lives">3</span></p>
+      </div>
+      <div id="game-screen"></div>
+    </div>
+
+    <div id="game-end">
+      <h1>Oh nein! Du hast verloren. Aber wenigstens bist du in Hongkong! </h1>
+      <img src="./images/logo.png" alt="" class="logo-img" />
+      <br />
+      <button id="restart-button">Restart</button>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
