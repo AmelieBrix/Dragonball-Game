@@ -53,6 +53,13 @@ body {
 
 #start-button {
   background-color: #f086a4;
+  transform 0.3s ease-in-out;
+}
+
+#start-button:hover {
+  background-color: #00a984;
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .right-container {
@@ -65,10 +72,20 @@ body {
 
 #dragon-img {
   max-width: 30rem;
+  transition: transform 1s linear;
+}
+
+#dragon-img:hover {
+  transform: rotate(360deg);
 }
 
 #dragon-icon {
   max-width: 30rem;
+  transition: transform 1s linear;
+}
+
+#dragon-icon:hover {
+  transform: rotate(360deg);
 }
 
 #game-container {
@@ -133,9 +150,6 @@ body {
   font-family: "Verdana";
 }
 
-.logo-img {
-  width: 350px;
-}
 
 .arrows-img {
   width: 150px;
@@ -176,5 +190,13 @@ body button {
   justify-content: center;
   background-color: #f086a4;
   color: #fff;
-  width: 20%;
+  /*width: 20%;*/
+  transition: transform 0.3s ease-in-out; ;
 }
+
+#restart-button:hover {
+  background-color: #00a984;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+

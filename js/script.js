@@ -87,7 +87,7 @@ window.onload = function () {
     startButton.addEventListener("click", function () {
       startGame();
     });
-   
+  
     restartButton.addEventListener("click", function () {
       // Call the restartGame function when the button is clicked
       restartGame();
