@@ -17,7 +17,7 @@ body {
 #game-intro {
   display: flex;
   flex-direction: row;
-  padding: 2rem 0rem;
+  padding: 0rem 0rem;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -79,7 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  display: flex;
+  display: none;
 }
 
 #score-div {
@@ -117,7 +117,15 @@ body {
 }
 
 #game-end {
+  background-color: #00a984;
   display: none;
+  flex-direction: row;
+  padding: 0rem 0rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  align-content: space-around;
 }
 
 .game-intro p {
@@ -135,11 +143,38 @@ body {
 
 body button {
   font-size: 30px;
-  background-color: #870007;
+  background-color: #f086a4;
   color: #fff;
   padding: 20px 40px;
   border: 0;
   box-shadow: 0;
   border-radius: 5px;
   margin-bottom: 20px;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black 0.5rem solid;
+  height : 50rem;
+  width : 70rem;
+  padding: 0px 0px;
+  position: relative;
+  background-image: url(../images/mountains.png);
+  background-size: cover;
+
+}
+
+#game-over-image {
+  filter: blur(8px);
+}
+
+
+#restart-button {
+  display: flex;
+  justify-content: center;
+  background-color: #f086a4;
+  color: #fff;
+  width: 20%;
 }

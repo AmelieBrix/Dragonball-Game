@@ -3,6 +3,7 @@ class Game {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
+    this.gameContainer = document.getElementById("game-container");
     this.player = new Player(
       this.gameScreen,
       300,
@@ -31,7 +32,8 @@ class Game {
     this.startScreen.style.display = "none";
 
     // Show the game screen
-    this.gameScreen.style.display = "block";
+    this.gameScreen.style.display = "flex";
+    this.gameContainer.style.display = "flex";
 
     // Runs the gameLoop on a fequency of 60 times per second. Also stores the ID of the interval.
     this.gameIntervalId = setInterval(() => {
@@ -63,8 +65,9 @@ class Game {
 
     // Hide game screen
     this.gameScreen.style.display = "none";
+    this.gameContainer.style.display = "none";
     // Show end game screen
-    this.gameEndScreen.style.display = "block";
+    this.gameEndScreen.style.display = "flex";
   }
 
   update() { // responsible for the updates of all the elements of the game
@@ -134,7 +137,7 @@ class Game {
 
     }
 
-    if (Math.random() > 0.98 && this.sphere.length < 2) {
+    if (Math.random() > 0.98 && this.sphere.length < 1) {
       this.sphere.push(new Sphere(this.gameScreen));  // generate the obstacles
     }
 
