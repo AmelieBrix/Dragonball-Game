@@ -272,16 +272,16 @@ class Obstacle {
   selectImage(index) {
     switch (index) {
       case 0:
-        this.element.src = "../images/fire.png"
+        this.element.src = "./images/fire.png"
         break;
       case 1:
-        this.element.src = "../images/water.png"
+        this.element.src = "./images/water.png"
         break;
       case 2:
-        this.element.src = "../images/earth.png"
+        this.element.src = "./images/earth.png"
         break;
       case 3:
-        this.element.src = "../images/air.png"
+        this.element.src = "./images/air.png"
         break;
       default:
         break;
