@@ -22,6 +22,7 @@ class Game {
     this.gameIntervalId;
     this.gameLoopFrequency = Math.round(1000 / 60); // 60fps
   }
+  //just to push again
 
   start() {
     // Set the height and width of the game screen
