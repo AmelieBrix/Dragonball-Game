@@ -52,6 +52,7 @@ class Game {
   }
 
   gameLoop() {
+    //check
 
     this.update();
 
