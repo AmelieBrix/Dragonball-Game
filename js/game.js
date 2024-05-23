@@ -27,6 +27,8 @@ class Game {
     // Set the height and width of the game screen
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
+    //Add
+    this.resetGameLoop(this.gameLoopFrequency);
 
     // Hide the start screen
     this.startScreen.style.display = "none";
@@ -40,12 +42,19 @@ class Game {
       this.gameLoop()
     }, this.gameLoopFrequency)
   }
+  //add
+  resetGameLoop(newFrequency) {
+    clearInterval(this.gameIntervalId); // Clear the existing interval
+    this.gameLoopFrequency = newFrequency; // Update frequency based on score
+    this.gameIntervalId = setInterval(() => {
+      this.gameLoop();
+    }, this.gameLoopFrequency);
+  }
+
   gameLoop() {
-    //   console.log("in the game loop");
 
     this.update();
 
-    // If "gameIsOver" is set to "true" clear the interval to stop the loop
     if (this.gameIsOver) {
       clearInterval(this.gameIntervalId)
     }
@@ -55,19 +64,21 @@ class Game {
   }
   updateScore() {
     document.getElementById('score').textContent = this.score;
+    document.getElementById('final-score').textContent = this.score + " points";
   }
 
   endGame() {
-    this.player.element.remove(); // remove the player from the game
-    this.obstacles.forEach(obstacle => obstacle.element.remove()); // remove the obstacles from the game
+    this.player.element.remove(); 
+    this.obstacles.forEach(obstacle => obstacle.element.remove()); 
 
-    this.gameIsOver = true; // trigger if(this.gameIsOver) on line 47cd 
+    this.gameIsOver = true; 
 
     // Hide game screen
     this.gameScreen.style.display = "none";
     this.gameContainer.style.display = "none";
     // Show end game screen
     this.gameEndScreen.style.display = "flex";
+    
   }
 
   update() { // responsible for the updates of all the elements of the game
@@ -81,53 +92,48 @@ class Game {
       obstacle.move();
 
       if (this.player.didCollide(obstacle)) {
-        // Remove the obstacle element from the DOM
         obstacle.element.remove();
-        // Remove obstacle object from the array
         this.obstacles.splice(i, 1);
-        // Reduce player's lives by 1
         this.lives--;
-        // Update the counter variable to account for the removed obstacle
         i--;
       }
       else if (obstacle.top > this.height) {
-        // Increase the score by 1
-        //this.score++;
-        // Remove the obstacle from the DOM
         obstacle.element.remove();
-        // Remove obstacle object from the array
         this.obstacles.splice(i, 1);
-        // Update the counter variable to account for the removed obstacle
         i--;
       }
     }
 
-    if (Math.random() > 0.98 && this.obstacles.length < 2) {
-      this.obstacles.push(new Obstacle(this.gameScreen));  // generate the obstacles
-    }
+     if (this.score > 5 && this.score <= 10) {
+        this.resetGameLoop(Math.round(1000 / 100)); 
+        console.log("Level up 1");
+      } else if (this.score > 10 && this.score <= 15) {
+        this.resetGameLoop(Math.round(1000 / 120)); 
+        console.log("Level up 2");
+      } else if (this.score > 15 && this.score <= 20) {
+        this.resetGameLoop(Math.round(1000 / 140));
+        console.log("Level up 3"); 
+      } else if (this.score > 20 && this.score <= 25) {
+        this.resetGameLoop(Math.round(1000 / 160));
+        console.log("Level up 4"); 
+      } else if (this.score > 25) {
+        this.resetGameLoop(Math.round(1000 / 200)); 
+        console.log("Level up 5");
+      }
+
 
     for (let i = 0; i < this.sphere.length; i++) {
       const sphere = this.sphere[i];
       sphere.move();
 
-      // check if there's a collision between the player and an obstacle
-      // if yes --> endGame
-      // if not--> keep the game going
-      // If the player's car collides with an obstacle
       if (this.player.didCollect(sphere)) {
-        // Remove the obstacle element from the DOM
         sphere.element.remove();
-        // Remove obstacle object from the array
         this.sphere.splice(i, 1);
-        // Reduce player's lives by 1
         this.score++;
-        // Update the counter variable to account for the removed obstacle
         i--;
       }
       else if (sphere.top > this.height) {
-        // Increase the score by 1
-        //this.score++;
-        // Remove the obstacle from the DOM
+
         sphere.element.remove();
         // Remove obstacle object from the array
         this.sphere.splice(i, 1);
@@ -137,17 +143,20 @@ class Game {
 
     }
 
+    if (Math.random() > 0.98 && this.obstacles.length < 1) {
+      this.obstacles.push(new Obstacle(this.gameScreen));  // generate the obstacles
+    }
+
     if (Math.random() > 0.98 && this.sphere.length < 1) {
-      this.sphere.push(new Sphere(this.gameScreen));  // generate the obstacles
+      this.sphere.push(new Sphere(this.gameScreen));  // generate the spheres
     }
 
     if (this.lives === 0) {
       this.endGame();
     }
+      
   }
-
-
-}
+  }
 
 class Player {
   constructor(gameScreen, left, top, width, height, imgSrc) {

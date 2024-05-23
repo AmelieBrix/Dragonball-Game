@@ -11,16 +11,25 @@
 
 <body>
   <main>
-    <!-- #game-intro is initially shown on the game start screen -->
     <div id="game-intro">
-
       <div class="left-container">
         <img src="./images/long.png" alt="dragon sign" id="dragon-img">
       </div>
 
       <div class="middle-container">
         <p id="title">2024 is the year of the dragon!</p>
-        <p> Help the dragon collect his spheres with the chinese symbol for dragon: "lóng". But beware of the elements!
+        <p id="p-introduction"> In Chinese culture, the dragon is a symbol of power and good fortune. It is so revered that there are often spikes in birth rates during the Year of the Dragon, 
+          as many in China believe it to bring prosperity and success.
+          <br>
+          <br>
+          Goal: In honor of the year of the dragon, lets help the dragon stay safe and increase his strength. 
+          Collect as many mystical spheres emblazoned with the Chinese character for "dragon", (lóng)  "龙" <span><img src="./images/long.png" alt="long icon" id="small-icon"></span> 
+          <br>
+          These spheres power up the dragon for his year and allow him to achieve his high scores!
+          <br>
+          <br>
+          But be careful to avoid the spheres falling from the sky marked with the elemental symbols:
+          土 (earth), 火 (fire), 水 (water), and 气 (air). Each element will harm the dragon!
         </p>
         <div>
           <p id="arrow-p">Use the arrows to move the dragon!</p>
@@ -44,7 +53,14 @@
 
     <div id="game-end">
       <div class="game-over">
-        <div><h1>Oh no! You lost. Want to try again?</h1></div>
+        <div id="final-score">
+          <p>Long Count: <span id="score">0</span></p>
+          <p>Lives: <span id="lives">3</span></p>
+        </div>
+        <div id="gameover-image-div">
+          <h1>GAME OVER</h1>
+          <img src="./images/sad face.avif" alt="sad face" id="gameover-image">
+        </div>
         <div><button id="restart-button">Restart</button></div>
       </div>
     </div>

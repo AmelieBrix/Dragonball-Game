@@ -47,6 +47,18 @@ body {
   font-size: 3rem;
 }
 
+#p-introduction {
+  width: 43rem;
+  height: 8 rem;
+  overflow: scroll;
+  font-size: 1.7rem;
+  border: black solid 0.02rem;
+}
+
+#small-icon {
+  height: 3.5rem;
+}
+
 #arrow-p {
   margin: 0rem;
 }
@@ -108,6 +120,15 @@ body {
   align-items: center;
 }
 
+#final-score {
+  width: 100%;
+  color: white;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #game-screen {
   display: none;
   align-content: center;
@@ -136,20 +157,14 @@ body {
 #game-end {
   background-color: #00a984;
   display: none;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0rem 0rem;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: 100%;
-  align-content: space-around;
+  align-items: center;
 }
-
-.game-intro p {
-  font-size: 18px;
-  font-family: "Verdana";
-}
-
 
 .arrows-img {
   width: 150px;
@@ -171,17 +186,22 @@ body button {
   flex-direction: column;
   align-items: center;
   border: black 0.5rem solid;
-  height : 50rem;
-  width : 70rem;
+  height: 50rem;
+  width: 70rem;
   padding: 0px 0px;
   position: relative;
   background-image: url(../images/mountains.png);
   background-size: cover;
+  justify-content: space-evenly;
 
 }
 
-#game-over-image {
-  filter: blur(8px);
+#game-over-image-div {
+  color: white;
+}
+
+#gameover-image {
+  width: 30rem;
 }
 
 
