@@ -10,7 +10,7 @@ class Game {
       394,
       100,
       150,
-      "../images/dragon.png"
+      "./images/dragon.png"
     );
     this.height = 500;
     this.width = 700;
@@ -311,7 +311,7 @@ class Sphere {
     this.height = 120;
     this.element = document.createElement("img");
 
-    this.element.src = "../images/long.png";
+    this.element.src = "./images/long.png";
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
